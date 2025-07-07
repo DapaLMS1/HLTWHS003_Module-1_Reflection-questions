@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Click & Reveal Activity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-purple-dark: #532A8C;
+      --color-gray-light: #F2F2F2;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .circle-button {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background-color: var(--color-purple-dark);
+      color: white;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .question-box {
+      background-color: var(--color-gray-light);
+      padding: 0.75rem 1rem;
+      border-radius: 9999px;
+      margin-left: 0.75rem;
+      font-size: 1rem;
+      color: var(--color-purple-dark);
+      max-width: 500px;
+      display: none;
+    }
+
+    .question-box.show {
+      display: block;
+    }
+
+    .item-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .question-box {
+        max-width: 90vw;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body class="p-4">
+  <div class="max-w-3xl">
+    <div class="item-row">
+      <div class="circle-button" onclick="toggleQuestion('q1')">?</div>
+      <div id="q1" class="question-box">What does WHS mean to you in your day-to-day work or learning environment?</div>
+    </div>
+    <div class="item-row">
+      <div class="circle-button" onclick="toggleQuestion('q2')">?</div>
+      <div id="q2" class="question-box">Have you ever seen or experienced a situation where WHS was important?</div>
+    </div>
+    <div class="item-row">
+      <div class="circle-button" onclick="toggleQuestion('q3')">?</div>
+      <div id="q3" class="question-box">How do you contribute to a safe and healthy environment for yourself and others?</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleQuestion(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
